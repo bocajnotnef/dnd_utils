@@ -168,7 +168,7 @@ def main():
     )
 
     skill_days_required = enchantment_types_to_skilldays[enchantment.etype][0]
-    enchantment.time_to_enchant = enchantment_time(enchantment.ease, skill_days_required)
+    enchantment.time_to_enchant = math.ceil(TimeFactor[args.time_factor].value * enchantment_time(enchantment.ease, skill_days_required))
     enchantment.cost = cost_of_use(enchantment.volatility)
 
     enchantment.print_enchantment()
